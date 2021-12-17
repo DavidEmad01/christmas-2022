@@ -1,0 +1,847 @@
+/* ================= Google Fonts ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* =============== Start Variables ==================== */
+:root {
+  --header-height: 3.5rem;
+
+  /* ================ Colors ================== */
+  --first-color: hsl(355, 70%, 54%);
+  --first-color-alt: hsl(355, 66%, 50%);
+  --title-color: hsl(355, 4%, 15%);
+  --text-color: hsl(355, 4%, 35%);
+  --text-color-light: hsl(355, 4%, 55%);
+  --body-color: #fff;
+  --container-color: #fff;
+
+  /* ================== Font size ================ */
+  --body-font: 'Poppins', sans-serif;
+
+  --biggest-font-size: 1.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* =============== Font Weight =================== */
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /* ============== Margin Bottom ================= */
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+
+  /* ============ z indez ===================== */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* _________________Responsive typography___________ */
+@media screen and (min-width: 992px) {
+  :root {
+    --biggest-font-size: 2.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+/* =================== End Variables ================== */
+
+/* ================ Start Main Rules =================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  /* color: var(--text-color); */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, 
+h2, 
+h3, 
+h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-image: linear-gradient(to bottom, #999, #777);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #222;
+  border-radius: 10px;
+}
+/* ================== End Main Rules ====================== */
+
+/* ================== Start Components ==================== */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Small Screen */
+@media (min-width: 768px) {
+  .container {
+    max-width: 750px;
+  }
+}
+
+/* Medium Screen */
+@media (min-width: 992px) {
+  .container {
+    max-width: 970px;
+  }
+}
+
+/* Large Screen */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+
+.btn{
+  background-color: var(--first-color);
+  padding: 15px 30px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.5s;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: var(--first-color-alt);
+  transform: scale(0.98);
+}
+
+/* ================ End Components =================== */
+
+/* ================= Start Header ==================== */
+header {
+  padding: 15px 0;
+  font-weight: 500;
+  position: fixed;
+  background-color: var(--body-color);
+  width: 100%;
+  z-index: 100;
+  transition: 0.5s;
+  color: var(--title-color);
+}
+
+header.shadow{
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 10px 0;
+  }
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+header .logo img {
+  width: 25px;
+  margin-right: 5px;
+}
+
+header .links-container {
+  display: flex;
+}
+
+header .links-container .links {
+  display: flex;
+}
+
+header .links-container .links li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 0 10px;
+  transition: 0.5s;
+  position: relative;
+}
+
+header .links-container .links li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  background-color: var(--first-color);
+  width: 0%;
+  border-bottom: 2px solid var(--first-color);
+  transition: 0.5s;
+}
+
+header .links-container .links li a.active,
+header .links-container .links li a:hover  {
+  color: var(--first-color);
+}
+
+header .links-container .links li a.active::after,
+header .links-container .links li a:hover::after {
+  width: 100%;
+}
+
+header .links-container .links .close,
+header .links-container .links img {
+  display: none;
+}
+
+header .links-container .dark-mode {
+  display: block;
+  padding: 10px;
+  margin-left:10px;
+  cursor: pointer;
+}
+
+header .links-container .dark-mode span {
+  font-weight: 600;
+}
+
+.show-dark {
+  display: block;
+}
+
+.hide-dark {
+  display: none;
+}
+
+header .nav .menu-open {
+  display: none;
+  padding: 10px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/* ============= Mobile =================== */
+@media (max-width: 768px) {
+  header .links-container .links {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    position: absolute;
+    top: -700%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    background-color: var(--container-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 20px 20px;
+    padding: 50px 0;
+    transition: 0.7s;
+  }
+
+  header .links-container .links.open {
+    top: 0;
+  }
+
+  header .links-container .links .close {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+
+  header .links-container .links img {
+    display: block;
+    width: 150px;
+    margin: auto;
+  }
+
+  header .links-container .links li a:hover::after,
+  header .links-container .links li a.active::after  {
+    width: 10%;
+  }
+
+  header .nav .menu-open {
+    display: block;
+  }
+}
+/* ================ End Header ================= */
+
+
+/* =============== Start Home =================== */
+.home {
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+.home .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.home .intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.home .intro img {
+  max-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .home .intro {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+
+.home .intro .text h1 {
+  font-size: 1.75rem;
+}
+
+.home .intro .text p {
+  line-height: 1.6;
+  color: var(--text-color-light);
+}
+
+.home .giving {
+  padding-top: 100px;
+}
+
+.home .giving h2{
+  text-align: center;
+  max-width: 200px;
+  margin: 0 auto 50px;
+}
+
+.home .giving .giving-container {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+}
+
+@media (min-width: 1200px) {
+  .home .giving .giving-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+.home .giving .giving-container .box{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.home .giving .giving-container .box img{
+  max-width: 100px;
+  transition: 0.5s;
+}
+
+.home .giving .giving-container .box h3{
+  margin: 0;
+}
+
+.home .giving .giving-container .box p{
+  margin: 0;
+  margin-top: 5px;
+  max-width: 150px;
+  color: var(--text-color-light);
+}
+
+.home .giving .giving-container img:hover {
+  transform: translateY(-15px);
+}
+
+@media (max-width: 768px) {
+  .home .giving h2 {
+    margin-bottom: 40px;
+  }
+
+  .home .giving .giving-container {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+/* =============== End Home =================== */
+
+
+/* =============== Start Celebrate ============== */
+.celebrate {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.celebrate .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+
+.celebrate .text h2 {
+  max-width: 220px;
+}
+
+.celebrate .text p {
+  color: var(--text-color-light);
+}
+
+.celebrate img {
+  max-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .celebrate .container {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .celebrate .text h2 {
+    max-width: 100%;
+  }
+
+  .celebrate .text p {
+    margin-bottom: 20px;
+  }
+}
+/* =============== End Celebrate ============== */
+
+
+/* ================ Start Gifts =================== */
+.gifts {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.gifts h1 {
+  text-align: center;
+  font-size: 20px;
+}
+
+.gifts .gifts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+@media (max-width: 768px) {
+  .gifts .gifts-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+}
+
+.gifts .gifts-container .box {
+  box-shadow: 0 4px 16px rgba(99, 98, 98, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: relative;
+  background-color: var(--container-color);
+}
+
+.gifts .gifts-container .box::after {
+  content: "\e903";
+  font-family: icomoon;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--first-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gifts .gifts-container .box img {
+  max-width: 100px;
+  align-self: center;
+  transition: 0.5s;
+}
+
+.gifts .gifts-container .box:hover img {
+  transform: translateY(-10px);
+}
+
+.gifts .gifts-container .box .text {
+  margin-top: 10px;
+}
+
+.gifts .gifts-container .box .text h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.gifts .gifts-container .box .text p {
+  margin: 0;
+  color: var(--text-color-light);
+  font-size: 14px;
+}
+/* ================ End Gifts =================== */
+
+
+/* ================ Start New =================== */
+.new {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.new h1 {
+  text-align: center;
+}
+
+.new-card {
+  position: relative;
+  width: 230px;
+  background-color: var(--container-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 1rem 1rem 1.5rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  overflow: hidden;
+  user-select: none;
+}
+
+.new-overlay {
+  width: 250px;
+  height: 250px;
+  background-color: var(--first-color);
+  border-radius: 50%;
+  position: absolute;
+  top: -80px;
+  left: -10px;
+  z-index: 0;
+}
+
+.new-image {
+  position: relative;
+  width: 150px;
+  margin-bottom: 20px;
+  transition: 0.5s;
+}
+
+.new-price {
+  font-size: 20px;
+}
+
+.new-title {
+  font-weight: 500;
+  color: var(--text-color-light);
+}
+
+.new-button {
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 0.25rem 0.25rem 0.75rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.new-icon {
+  font-size: 1.25rem;
+}
+
+.new-card:hover .new-image {
+  transform: translateY(-10px);
+}
+
+/* Swiper */
+.swiper-pagination-bullet{
+  background-color: var(--text-color);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--first-color);
+}
+
+/* ================ End New =================== */
+
+
+/* =============== Start Message ==================== */
+.message {
+  padding-top: 100px;
+}
+
+.message .container {
+  --container-color: var(--first-color);
+  background-color: var(--container-color);
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .message .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .message {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.message .send {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.message .send h1{
+  font-size: 22px;
+  color: white;
+  font-weight: 600;
+  width: 150px;
+  text-align: center;
+}
+
+.message .send form input {
+  display: block;
+  width: 100%;
+
+}
+
+.message .send form input[type = "text"]{
+  background-color: var(--body-color);
+  padding: 15px 30px;
+  border-radius: 50px;
+  caret-color: var(--first-color);
+}
+
+.message .send form input[type = "text"]::placeholder {
+  color: var(--text-color-light);
+  font-weight: 400;
+}
+
+.message .send form input[type = "submit"]{
+  background-color: black;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.message img {
+  max-width: 200px;
+  height: 100%;
+  transform: rotate(20deg) translateY(20px);
+  transition: 0.5s;
+}
+
+.message img:hover {
+  transform: rotate(20deg) translateY(20px) translateX(-20px);
+}
+/* =============== End Message ==================== */
+
+
+/* ================= Start Contact ================= */
+.contact {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.contact .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  position: relative;
+}
+
+.contact .container > div:first-child a {
+  color: var(--title-color);
+  display: flex;
+  align-items: center;
+}
+
+.contact .container > div:first-child a img {
+  width: 30px;
+  margin-right: 5px;
+}
+
+.contact .container > div:first-child p {
+  color: var(--text-color-light);
+}
+
+.contact .container > div h2 {
+  font-size: 20px;
+}
+
+.contact .container > div a {
+  display: block;
+  width: fit-content;
+  padding: 5px 0;
+  color: var(--text-color-light);
+  transition: 0.5s;
+}
+
+.contact .container > div:not(:first-child) a:hover {
+  color: var(--title-color);
+  transform: translateX(5px);
+}
+
+.contact .container > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background Images */
+.contact .container > img {
+  width: 80px;
+  position: absolute;
+  z-index: 1;
+  transition: 1s;
+}
+
+.contact .container > img:hover {
+  transform: rotate(-10deg) translateY(10px);
+}
+
+.contact  .container .bg-1 {
+  top: 100px;
+  left: 50px;
+}
+
+.contact  .container .bg-2 {
+  top: 100px;
+  right: 50px;
+}
+
+
+@media (max-width: 768px) {
+  .contact .container {
+    text-align: center;
+  }
+
+  .contact .container > div:first-child a {
+    justify-content: center;
+  }
+
+  .contact .container > div a {
+    margin: auto;
+  }
+  
+.contact  .container .bg-1 {
+  top: 100px;
+  left: 20px;
+}
+
+.contact  .container .bg-2 {
+  top: 250px;
+  right: 20px;
+}
+}
+/* ================= End Contact ================= */
+
+
+/* ================ Start Footer =================== */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--text-color);
+}
+
+.footer .me {
+  color: var(--first-color);
+  font-weight: 500;
+}
+
+.footer .me:hover {
+  color: var(--first-color-alt);
+}
+/* ================ End Footer ======================*/
+
+/* ================ Scroll To Top */
+.scroll-btn {
+  padding: 10px;
+  color: var(--first-color);
+  background-color: var(--container-color);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 100;
+  bottom: -100%;
+  transition: 0.7s;
+}
+
+.scroll-btn:hover {
+  color: var(--first-color-alt) ;
+}
+
+.scroll-btn.show-up {
+  bottom: 20px;
+}
