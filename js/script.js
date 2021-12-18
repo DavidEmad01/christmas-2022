@@ -180,4 +180,22 @@ let up = document.querySelector(".scroll-btn");
 
 up.addEventListener("click", function () {
     window.scrollTo(0, 0);
-})
+});
+
+/* ================= ScrollReaval Animation ================ */
+const sr = ScrollReveal({
+    origin: "top",
+    distance: "60px",
+    duration: 2500,
+    delay: 400,
+    reset: true,
+});
+
+sr.reveal(`.home_img, .new, .contact, .footer, .giving`);
+sr.reveal(`.home_data`, {delay: 500});
+sr.reveal(`.gifts`, {interval: 100});
+sr.reveal(`.celebrate_data, .send`, {origin: "left"});
+sr.reveal(`.message_img`, {origin: "right"});
+sr.reveal(`.celebrate_img`, {origin: "right", distance: "30px", delay: 500});
+sr.reveal(`.bg-1`, {origin: "right"});
+sr.reveal(`.bg-2`, {origin: "left"});
